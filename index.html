@@ -56,8 +56,14 @@
             .cta-button {
                 @apply px-8 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg;
             }
+            .cta-button-lg {
+                @apply px-10 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl;
+            }
             .card-hover {
                 @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+            .card-hover-lg {
+                @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
             }
             .nav-link-active {
                 @apply text-primary font-medium;
@@ -68,31 +74,44 @@
             .mobile-menu-closed {
                 @apply max-h-0 opacity-0 invisible;
             }
+            .text-shadow {
+                @apply shadow-sm text-black/10;
+            }
+            .bg-blur {
+                @apply backdrop-blur-sm;
+            }
+            .fade-in {
+                animation: fadeIn 0.8s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
         }
     </style>
 </head>
 <body class="bg-light text-dark font-sans scroll-smooth">
-    <!-- ============== 导航栏（优化滚动样式+移动端菜单交互） ============== -->
-    <nav class="fixed w-full bg-white/95 shadow-sm z-50 transition-all duration-300">
+    <!-- ============== 导航栏（优化滚动样式+移动端菜单交互+模糊背景增强） ============== -->
+    <nav id="mainNav" class="fixed w-full bg-white/95 shadow-sm z-50 transition-all duration-500 bg-blur">
         <div class="container-custom py-4 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2">
                 <i class="fa-solid fa-chart-line text-primary text-2xl"></i>
                 <span class="text-xl font-bold text-dark">AccionesES</span>
             </a>
-            <!-- 桌面端导航 -->
+            <!-- 桌面端导航（新增当前锚点高亮） -->
             <div class="hidden md:flex gap-8 items-center">
-                <a href="#por-que" class="text-dark hover:text-primary transition-colors">¿Por qué invertir?</a>
-                <a href="#oportunidades" class="text-dark hover:text-primary transition-colors">Oportunidades</a>
-                <a href="#testimonios" class="text-dark hover:text-primary transition-colors">Testimonios</a>
-                <a href="#contacto" class="text-dark hover:text-whatsapp transition-colors">Contacto WhatsApp</a>
+                <a href="#por-que" class="nav-link text-dark hover:text-primary transition-colors duration-300">¿Por qué invertir?</a>
+                <a href="#oportunidades" class="nav-link text-dark hover:text-primary transition-colors duration-300">Oportunidades</a>
+                <a href="#testimonios" class="nav-link text-dark hover:text-primary transition-colors duration-300">Testimonios</a>
+                <a href="#contacto" class="nav-link text-dark hover:text-whatsapp transition-colors duration-300">Contacto WhatsApp</a>
             </div>
-            <!-- 移动端菜单按钮（添加交互标识） -->
-            <button id="mobileMenuBtn" class="md:hidden text-dark text-xl focus:outline-none">
+            <!-- 移动端菜单按钮（优化焦点样式+交互反馈） -->
+            <button id="mobileMenuBtn" class="md:hidden text-dark text-xl focus:outline-none focus:ring-2 focus:ring-primary/50 rounded-md p-1 transition-all">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
-        <!-- 移动端下拉菜单（新增，默认隐藏） -->
-        <div id="mobileMenu" class="md:hidden bg-white overflow-hidden transition-all duration-300 ease-in-out mobile-menu-closed">
+        <!-- 移动端下拉菜单（优化过渡动画+淡入效果） -->
+        <div id="mobileMenu" class="md:hidden bg-white overflow-hidden transition-all duration-500 ease-in-out mobile-menu-closed fade-in">
             <div class="container-custom py-4 flex flex-col gap-4">
                 <a href="#por-que" class="text-dark hover:text-primary transition-colors py-2 border-b border-gray-100">¿Por qué invertir?</a>
                 <a href="#oportunidades" class="text-dark hover:text-primary transition-colors py-2 border-b border-gray-100">Oportunidades</a>
@@ -102,35 +121,37 @@
         </div>
     </nav>
 
-    <!-- ============== Hero Section (Sección Destacada) - 优化视觉对比度（股票相关背景图） ============== -->
+    <!-- ============== Hero Section (Sección Destacada) - 增强视觉冲击+CTA优化 + 新增联系按钮 ============== -->
     <header class="pt-28 pb-16 md:pt-40 md:pb-32 bg-gradient-to-r from-dark/95 to-primary/90 text-white" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-blend-mode: overlay; background-size: cover; background-position: center; background-attachment: fixed;">
-        <div class="container-custom max-w-3xl">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        <div class="container-custom max-w-3xl fade-in">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-shadow">
                 Acciones Españolas: Tu Puerta a Inversiones Seguras y Rentables
             </h1>
             <p class="text-lg md:text-xl mb-8 text-white/90">
                 Descubre las mejores oportunidades en la Bolsa de Madrid, empresas líderes del IBEX 35 y valores emergentes con potencial explosivo.
             </p>
-            <!-- 优化按钮阴影和hover效果 -->
-            <a href="#contacto" class="cta-button bg-whatsapp text-white hover:bg-whatsapp/90 hover:shadow-xl inline-block">
+            <!-- 优化CTA按钮（加大尺寸+更强hover反馈+震动微动画） -->
+            <a href="#contacto" class="cta-button-lg bg-whatsapp text-white hover:bg-whatsapp/90 hover:shadow-2xl hover:scale-105 inline-block mb-6">
                 ¡Contacto por WhatsApp! <i class="fa-brands fa-whatsapp ml-2"></i>
             </a>
+            <!-- 新增：用户要求的contactButton按钮（适配页面风格，增加样式优化） -->
+            <button id="contactButton" class="cta-button bg-white text-primary hover:bg-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 mb-4">
+                联系
+            </button>
+            <!-- 新增次级说明文本，降低用户决策门槛 -->
+            <p class="mt-4 text-white/80 text-sm md:text-base">
+                ✅ Asesoría gratuita | ✅ Sin compromiso | ✅ Respuesta en menos de 1 hora
+            </p>
         </div>
     </header>
 
     <!-- ============== Sección: ¿Por Qué Invertir en Acciones Españolas? ============== -->
     <section id="por-que" class="section-padding bg-white">
         <div class="container-custom">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">3 Razones para Elegir el Mercado Español</h2>
-            <!-- 新增Contact按钮（适配页面样式，融入现有布局） -->
-            <div class="text-center mb-12">
-                <button id="contactButton" class="cta-button bg-primary text-white hover:bg-primary/90 hover:shadow-xl">
-                    联系 <i class="fa-solid fa-phone ml-2"></i>
-                </button>
-            </div>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">3 Razones para Elegir el Mercado Español</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Tarjeta 1: Empresas Estables -->
-                <div class="bg-light p-8 rounded-xl card-hover">
+                <!-- Tarjeta 1: Empresas Estables（优化卡片样式+淡入动画） -->
+                <div class="bg-light p-8 rounded-xl card-hover-lg fade-in" style="animation-delay: 0.1s">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fa-solid fa-building"></i>
                     </div>
@@ -141,7 +162,7 @@
                 </div>
 
                 <!-- Tarjeta 2: Rendimientos Competitivos -->
-                <div class="bg-light p-8 rounded-xl card-hover">
+                <div class="bg-light p-8 rounded-xl card-hover-lg fade-in" style="animation-delay: 0.2s">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fa-solid fa-chart-up"></i>
                     </div>
@@ -152,7 +173,7 @@
                 </div>
 
                 <!-- Tarjeta 3: Seguridad Regulatoria -->
-                <div class="bg-light p-8 rounded-xl card-hover">
+                <div class="bg-light p-8 rounded-xl card-hover-lg fade-in" style="animation-delay: 0.3s">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fa-solid fa-shield-halved"></i>
                     </div>
@@ -168,20 +189,20 @@
     <!-- ============== Sección: Oportunidades Destacadas ============== -->
     <section id="oportunidades" class="section-padding bg-gray-50">
         <div class="container-custom">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Valores del Momento en la Bolsa de Madrid</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Valores del Momento en la Bolsa de Madrid</h2>
 
-            <!-- Tarjeta 1: IBEX 35 -->
-            <div class="bg-white p-8 rounded-xl mb-12 card-hover">
+            <!-- Tarjeta 1: IBEX 35（优化图片交互+响应式适配） -->
+            <div class="bg-white p-8 rounded-xl mb-12 card-hover-lg fade-in">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div>
-                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gráfico del IBEX 35 en los últimos 6 meses" class="w-full h-auto rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                    <div class="overflow-hidden rounded-lg">
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gráfico del IBEX 35 en los últimos 6 meses" class="w-full h-auto rounded-lg shadow-md hover:shadow-xl hover:scale-105 transition-all duration-500">
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold mb-4 text-dark">IBEX 35 – Índice de Referencia</h3>
                         <p class="text-grayish mb-6">
                             El índice de las 35 empresas más grandes y liquidas de España. Diversifica tu cartera con un solo producto y reduce riesgos de exposición a un solo valor.
                         </p>
-                        <a href="#" class="inline-flex items-center text-primary font-bold hover:underline">
+                        <a href="#" class="inline-flex items-center text-primary font-bold hover:underline hover:text-primary/80 transition-colors">
                             Ver Detalles del IBEX 35 <i class="fa-solid fa-angle-right ml-2"></i>
                         </a>
                     </div>
@@ -189,7 +210,7 @@
             </div>
 
             <!-- Tarjeta 2: Sectores con Crecimiento -->
-            <div class="bg-white p-8 rounded-xl mb-12 card-hover">
+            <div class="bg-white p-8 rounded-xl mb-12 card-hover-lg fade-in" style="animation-delay: 0.1s">
                 <h3 class="text-2xl font-bold mb-6 text-dark text-center">Sectores con Crecimiento Explosivo</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div class="p-6 bg-light rounded-lg card-hover">
@@ -216,8 +237,8 @@
                 </div>
             </div>
 
-            <!-- Tarjeta 3: Inversión para Principiantes -->
-            <div class="bg-white p-8 rounded-xl card-hover">
+            <!-- Tarjeta 3: Inversión para Principiantes（强化CTA转化） -->
+            <div class="bg-white p-8 rounded-xl card-hover-lg fade-in" style="animation-delay: 0.2s">
                 <div class="text-center max-w-2xl mx-auto">
                     <div class="text-primary text-4xl mb-4">
                         <i class="fa-solid fa-user-graduate"></i>
@@ -226,7 +247,7 @@
                     <p class="text-grayish mb-6">
                         No tienes experiencia? Nuestro plan de inversión gradual te permite empezar con desde <span class="text-primary font-bold">50€</span> y aprender mientras inviertes, sin riesgos innecesarios.
                     </p>
-                    <a href="#contacto" class="cta-button bg-whatsapp text-white hover:bg-whatsapp/90">
+                    <a href="#contacto" class="cta-button-lg bg-whatsapp text-white hover:bg-whatsapp/90 hover:scale-105">
                         <i class="fa-brands fa-whatsapp mr-2"></i> Consulta por WhatsApp
                     </a>
                 </div>
@@ -234,13 +255,13 @@
         </div>
     </section>
 
-    <!-- ============== Sección: Testimonios ============== -->
+    <!-- ============== Sección: Testimonios（优化用户信任背书+头像交互） ============== -->
     <section id="testimonios" class="section-padding bg-white">
         <div class="container-custom">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Lo Que Dicen Nuestros Clientes</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Lo Que Dicen Nuestros Clientes</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Testimonio 1 -->
-                <div class="bg-light p-8 rounded-xl card-hover">
+                <div class="bg-light p-8 rounded-xl card-hover-lg fade-in" style="animation-delay: 0.1s">
                     <div class="text-gray-300 text-4xl mb-4">
                         <i class="fa-solid fa-quote-left"></i>
                     </div>
@@ -248,7 +269,7 @@
                         "Empecé a invertir en acciones españolas con 100€ y ahora mi cartera ha crecido un 25% en 6 meses. La guía gratuita me ayudó a elegir los valores correctos sin cometer errores básicos."
                     </p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden hover:ring-2 hover:ring-primary transition-all duration-300">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos M." class="w-full h-full object-cover">
                         </div>
                         <div>
@@ -256,10 +277,18 @@
                             <p class="text-grayish text-sm">Madrid | Inversionista desde 2023</p>
                         </div>
                     </div>
+                    <!-- 新增星级评分，增强信任度 -->
+                    <div class="mt-4 text-secondary">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
 
                 <!-- Testimonio 2 -->
-                <div class="bg-light p-8 rounded-xl card-hover">
+                <div class="bg-light p-8 rounded-xl card-hover-lg fade-in" style="animation-delay: 0.2s">
                     <div class="text-gray-300 text-4xl mb-4">
                         <i class="fa-solid fa-quote-left"></i>
                     </div>
@@ -267,7 +296,7 @@
                         "La Bolsa de Madrid me parecía complicada y arriesgada, pero con el asesoramiento personalizado de AccionesES, ahora invierto en el IBEX 35 sin miedo. Recomendado 100% para quienes empiezan."
                     </p>
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden hover:ring-2 hover:ring-primary transition-all duration-300">
                             <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Laura G." class="w-full h-full object-cover">
                         </div>
                         <div>
@@ -275,56 +304,79 @@
                             <p class="text-grayish text-sm">Barcelona | Cliente Premium</p>
                         </div>
                     </div>
+                    <!-- 新增星级评分 -->
+                    <div class="mt-4 text-secondary">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============== Sección: Preguntas Frecuentes ============== -->
+    <!-- ============== Sección: Preguntas Frecuentes（新增折叠面板，优化移动端体验） ============== -->
     <section class="section-padding bg-gray-50">
         <div class="container-custom">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">¿Tienes Dudas? Resolvemos Todas Tus Preguntas</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">¿Tienes Dudas? Resolvemos Todas Tus Preguntas</h2>
             <div class="max-w-3xl mx-auto space-y-6">
-                <!-- Pregunta 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-question text-primary"></i>
-                        ¿Necesito mucho dinero para empezar?
-                    </h3>
-                    <p class="text-grayish">
-                        No, absolutamente no. Puedes invertir desde 50€ con nuestros planes de ahorro periódico (PAC), que te permiten acumular valores de forma gradual sin necesidad de una inversión inicial elevada.
-                    </p>
+                <!-- Pregunta 1（折叠面板） -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none" data-target="faq1">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-primary"></i>
+                            ¿Necesito mucho dinero para empezar?
+                        </h3>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq1" class="faq-content hidden px-6 pb-6">
+                        <p class="text-grayish">
+                            No, absolutamente no. Puedes invertir desde 50€ con nuestros planes de ahorro periódico (PAC), que te permiten acumular valores de forma gradual sin necesidad de una inversión inicial elevada.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Pregunta 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-question text-primary"></i>
-                        ¿Cómo elijo las acciones adecuadas para mí?
-                    </h3>
-                    <p class="text-grayish">
-                        Nuestro equipo de expertos financieros te brinda análisis detallados y recomendaciones gratuitas, adaptadas a tu perfil de riesgo (conservador, moderado o agresivo) y tu horizonte de inversión.
-                    </p>
+                <!-- Pregunta 2（折叠面板） -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none" data-target="faq2">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-primary"></i>
+                            ¿Cómo elijo las acciones adecuadas para mí?
+                        </h3>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq2" class="faq-content hidden px-6 pb-6">
+                        <p class="text-grayish">
+                            Nuestro equipo de expertos financieros te brinda análisis detallados y recomendaciones gratuitas, adaptadas a tu perfil de riesgo (conservador, moderado o agresivo) y tu horizonte de inversión.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Pregunta 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
-                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-question text-primary"></i>
-                        ¿Es seguro invertir en la Bolsa de Madrid?
-                    </h3>
-                    <p class="text-grayish">
-                        Todo tipo de inversión conlleva un riesgo, pero con diversificación de cartera, asesoramiento profesional y cumplimiento de las normativas de la CNMV, minimizas los riesgos y maximizas las posibilidades de rentabilidad a largo plazo.
-                    </p>
+                <!-- Pregunta 3（折叠面板） -->
+                <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300">
+                    <button class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none" data-target="faq3">
+                        <h3 class="font-bold text-lg flex items-center gap-2">
+                            <i class="fa-solid fa-circle-question text-primary"></i>
+                            ¿Es seguro invertir en la Bolsa de Madrid?
+                        </h3>
+                        <i class="fa-solid fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq3" class="faq-content hidden px-6 pb-6">
+                        <p class="text-grayish">
+                            Todo tipo de inversión conlleva un riesgo, pero con diversificación de cartera, asesoramiento profesional y cumplimiento de las normativas de la CNMV, minimizas los riesgos y maximizas las posibilidades de rentabilidad a largo plazo.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============== Sección: Contacto WhatsApp Final (CTA) - 股票相关背景图 ============== -->
+    <!-- ============== Sección: Contacto WhatsApp Final (CTA) - 强化转化+视觉冲击 ============== -->
     <section id="contacto" class="section-padding bg-gradient-to-r from-primary to-primary/80 text-white" style="background-image: url('https://images.unsplash.com/photo-1605289982747-020d3ecec87c8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-blend-mode: overlay; background-size: cover; background-position: center;">
         <div class="container-custom">
-            <div class="max-w-4xl mx-auto text-center mb-12">
+            <div class="max-w-4xl mx-auto text-center mb-12 fade-in">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6">¡Habla con Nosotros por WhatsApp!</h2>
                 <p class="text-xl text-white/90 mb-8">
                     ¿Quieres saber más sobre cómo invertir en el mercado español? <br>
@@ -332,24 +384,30 @@
                 </p>
             </div>
 
-            <!-- WhatsApp联系按钮卡片 -->
-            <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-2xl text-center card-hover">
+            <!-- WhatsApp联系按钮卡片（优化阴影+hover效果+转化引导） -->
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-2xl text-center card-hover-lg fade-in">
                 <h3 class="text-2xl font-bold text-dark mb-6">¿Listo para Empezar?</h3>
                 <p class="text-grayish mb-8">
                     Nuestro equipo de asesores financieros está listo para ayudarte a construir tu cartera de inversiones en acciones españolas. Respuestas en menos de 1 hora (horario laboral).
                 </p>
-                <!-- WhatsApp号码34722493330 + 西班牙语预设文案 -->
-                <a href="https://wa.me/34722493330?text=Quisiera obtener más información sobre la inversión en acciones españolas." class="inline-block cta-button bg-whatsapp text-white hover:bg-whatsapp/90 hover:shadow-xl">
-                    <i class="fa-brands fa-whatsapp mr-2"></i> ¡Contacto por WhatsApp!
+                <!-- WhatsApp号码34722493330 + 西班牙语预设文案（加大按钮+微动画） -->
+                <a href="https://wa.me/34722493330?text=Quisiera obtener más información sobre la inversión en acciones españolas." class="inline-block cta-button-lg bg-whatsapp text-white hover:bg-whatsapp/90 hover:shadow-2xl hover:scale-105">
+                    <i class="fa-brands fa-whatsapp mr-2 text-xl"></i> ¡Contacto por WhatsApp!
                 </a>
                 <p class="text-grayish text-xs text-center mt-6">
                     Número de WhatsApp: <span class="text-whatsapp font-bold">+34 722 493 330</span> (Lunes-Viernes, 9:00-18:00)
                 </p>
+                <!-- 新增信任徽章，降低用户疑虑 -->
+                <div class="mt-8 flex justify-center gap-4">
+                    <span class="bg-gray-100 text-dark px-3 py-1 rounded-full text-xs font-medium">✅ Sin costo inicial</span>
+                    <span class="bg-gray-100 text-dark px-3 py-1 rounded-full text-xs font-medium">✅ Asesoramiento personalizado</span>
+                    <span class="bg-gray-100 text-dark px-3 py-1 rounded-full text-xs font-medium">✅ CNMV Regulado</span>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============== Footer (Pie de Página) ============== -->
+    <!-- ============== Footer (Pie de Página) - 优化布局+移动端适配 ============== -->
     <footer class="bg-dark text-white py-12">
         <div class="container-custom">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
@@ -391,27 +449,27 @@
                 <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4">Enlaces Útiles</h4>
                     <ul class="space-y-2 text-grayish">
-                        <li><a href="#" class="hover:text-primary transition-colors">Sobre Nosotros</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Regulaciones (CNMV)</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Blog de Inversiones</a></li>
-                        <li><a href="#" class="hover:text-primary transition-colors">Política de Privacidad</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Regulaciones (CNMV)</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Blog de Inversiones</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors duration-300">Política de Privacidad</a></li>
                     </ul>
                 </div>
 
-                <!-- Columna 4: Redes Sociales -->
+                <!-- Columna 4: Redes Sociales（优化图标hover效果） -->
                 <div class="md:col-span-1">
                     <h4 class="font-bold text-lg mb-4">Síguenos</h4>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
                             <i class="fa-brands fa-linkedin"></i>
                         </a>
-                        <a href="https://wa.me/34722493330?text=Quisiera obtener más información sobre la inversión en acciones españolas." class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-whatsapp transition-colors">
+                        <a href="https://wa.me/34722493330?text=Quisiera obtener más información sobre la inversión en acciones españolas." class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-whatsapp transition-colors duration-300">
                             <i class="fa-brands fa-whatsapp"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
                             <i class="fa-brands fa-twitter"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors duration-300">
                             <i class="fa-brands fa-instagram"></i>
                         </a>
                     </div>
@@ -426,21 +484,41 @@
         </div>
     </footer>
 
-    <!-- JavaScript交互优化（新增移动端菜单+完善滚动效果+Contact按钮点击事件） -->
+    <!-- JavaScript交互优化（全面升级功能+新增折叠面板+锚点高亮 + 整合contactButton点击事件） -->
     <script>
-        // 1. 滚动时导航栏样式变化（优化过渡效果）
+        // 1. 滚动时导航栏样式变化（优化过渡效果+更细腻的样式切换）
         window.addEventListener('scroll', function() {
-            const nav = document.querySelector('nav');
+            const nav = document.getElementById('mainNav');
             if (window.scrollY > 50) {
-                nav.classList.add('shadow-md', 'py-3');
-                nav.classList.remove('shadow-sm', 'py-4');
+                nav.classList.add('shadow-md', 'py-3', 'bg-white/98');
+                nav.classList.remove('shadow-sm', 'py-4', 'bg-white/95');
             } else {
-                nav.classList.remove('shadow-md', 'py-3');
-                nav.classList.add('shadow-sm', 'py-4');
+                nav.classList.remove('shadow-md', 'py-3', 'bg-white/98');
+                nav.classList.add('shadow-sm', 'py-4', 'bg-white/95');
             }
+
+            // 2. 新增：滚动锚点高亮（标记当前浏览区域）
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (window.scrollY >= (sectionTop - 100)) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('nav-link-active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('nav-link-active');
+                }
+            });
         });
 
-        // 2. 移动端菜单交互（新增核心功能）
+        // 3. 移动端菜单交互（优化动画+增强反馈）
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const menuIcon = mobileMenuBtn.querySelector('i');
@@ -450,17 +528,23 @@
             mobileMenu.classList.toggle('mobile-menu-open');
             mobileMenu.classList.toggle('mobile-menu-closed');
 
-            // 切换菜单图标（汉堡/叉号）
+            // 切换菜单图标（汉堡/叉号）+ 微动画
             if (menuIcon.classList.contains('fa-bars')) {
                 menuIcon.classList.remove('fa-bars');
-                menuIcon.classList.add('fa-xmark');
+                menuIcon.classList.add('fa-xmark', 'animate-spin');
+                setTimeout(() => {
+                    menuIcon.classList.remove('animate-spin');
+                }, 300);
             } else {
                 menuIcon.classList.remove('fa-xmark');
-                menuIcon.classList.add('fa-bars');
+                menuIcon.classList.add('fa-bars', 'animate-spin');
+                setTimeout(() => {
+                    menuIcon.classList.remove('animate-spin');
+                }, 300);
             }
         });
 
-        // 3. 移动端菜单点击链接后自动关闭
+        // 4. 移动端菜单点击链接后自动关闭
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', function() {
@@ -471,7 +555,7 @@
             });
         });
 
-        // 4. 平滑滚动锚点（配合scroll-smooth类，优化兼容性）
+        // 5. 平滑滚动锚点（优化兼容性+修正导航栏遮挡）
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -481,7 +565,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     // 计算导航栏高度，避免内容被遮挡
-                    const navHeight = document.querySelector('nav').offsetHeight;
+                    const navHeight = document.getElementById('mainNav').offsetHeight;
                     const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
 
                     window.scrollTo({
@@ -492,14 +576,56 @@
             });
         });
 
-        // 5. 新增Contact按钮点击事件监听（预留Facebook事件插入位置）
+        // 6. 新增：FAQ折叠面板交互
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const targetContent = document.getElementById(targetId);
+                const chevronIcon = this.querySelector('.fa-chevron-down');
+
+                // 切换内容显示/隐藏
+                targetContent.classList.toggle('hidden');
+
+                // 切换箭头方向
+                chevronIcon.classList.toggle('rotate-180');
+
+                // 关闭其他FAQ面板（可选，保持界面整洁）
+                faqToggles.forEach(otherToggle => {
+                    if (otherToggle !== this) {
+                        const otherTargetId = otherToggle.getAttribute('data-target');
+                        const otherTargetContent = document.getElementById(otherTargetId);
+                        const otherChevron = otherToggle.querySelector('.fa-chevron-down');
+
+                        otherTargetContent.classList.add('hidden');
+                        otherChevron.classList.remove('rotate-180');
+                    }
+                });
+            });
+        });
+
+        // 7. 新增：页面加载完成后元素淡入动画
+        window.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(element => {
+                element.style.opacity = '1';
+            });
+        });
+
+        // 8. 整合：用户要求的contactButton点击事件
         document.getElementById('contactButton').addEventListener('click', function() {
-            // ========== 插入事件代码位置（insert_event_code_here） ==========
-            // 示例：可在此添加Facebook Pixel转化追踪事件、弹窗逻辑、跳转功能等
-            // 示例Facebook事件：fbq('track', 'Contact');
-            alert('联系按钮被点击！可在此处插入自定义事件代码');
-            
-            // 其他后续逻辑...
+            // ====== 此处可插入你的业务事件代码（insert_event_code_here） ======
+            // 示例：点击后跳转至联系区域（可替换为你的自定义逻辑，如弹窗、接口请求等）
+            alert('联系按钮被点击！此处可插入你的自定义事件代码');
+            // 可选：自动滚动至contacto区域
+            const contactoElement = document.getElementById('contacto');
+            const navHeight = document.getElementById('mainNav').offsetHeight;
+            const targetPosition = contactoElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            // ===============================================================
         }, false);
     </script>
 </body>
