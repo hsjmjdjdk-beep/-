@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inversión en Acciones Españolas - Maximiza tus Rentabilidades</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- 配置Tailwind自定义主题 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#C62828', // 西班牙红（主色调，贴合品牌感）
+                        secondary: '#FFC107', // 金黄（辅助色，突出CTA）
+                        whatsapp: '#25D366', // WhatsApp专属绿色
+                        dark: '#1A202C', // 深灰黑（文本主色）
+                        light: '#F7FAFC', // 浅灰（背景色）
+                        grayish: '#718096' // 中灰（次要文本）
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .section-padding {
+                @apply py-16 md:py-24;
+            }
+            .container-custom {
+                @apply container mx-auto px-4 sm:px-6 lg:px-8;
+            }
+            .cta-button {
+                @apply px-8 py-3 rounded-lg font-bold transition-all duration-300 shadow-lg;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-dark font-sans">
+    <!-- ============== 导航栏 ============== -->
+    <nav class="fixed w-full bg-white/95 shadow-sm z-50">
+        <div class="container-custom py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2">
+                <i class="fa-solid fa-chart-line text-primary text-2xl"></i>
+                <span class="text-xl font-bold text-dark">AccionesES</span>
+            </a>
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#por-que" class="text-dark hover:text-primary transition-colors">¿Por qué invertir?</a>
+                <a href="#oportunidades" class="text-dark hover:text-primary transition-colors">Oportunidades</a>
+                <a href="#testimonios" class="text-dark hover:text-primary transition-colors">Testimonios</a>
+                <a href="#contacto" class="text-dark hover:text-whatsapp transition-colors">Contacto WhatsApp</a>
+            </div>
+            <button class="md:hidden text-dark text-xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============== Hero Section (Sección Destacada) ============== -->
+    <header class="pt-28 pb-16 md:pt-40 md:pb-32 bg-gradient-to-r from-dark/90 to-primary/80 text-white" style="background-image: url('https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-blend-mode: overlay; background-size: cover; background-position: center;">
+        <div class="container-custom max-w-3xl">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Acciones Españolas: Tu Puerta a Inversiones Seguras y Rentables
+            </h1>
+            <p class="text-lg md:text-xl mb-8 text-white/90">
+                Descubre las mejores oportunidades en la Bolsa de Madrid, empresas líderes del IBEX 35 y valores emergentes con potencial explosivo.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#contacto" class="cta-button bg-whatsapp text-white hover:bg-whatsapp/90">
+                    ¡Contacto por WhatsApp! <i class="fa-brands fa-whatsapp ml-2"></i>
+                </a>
+                <a href="#" class="cta-button bg-white/20 text-white border border-white/30 hover:bg-white/30">
+                    Ver Guía de Inversión Gratis <i class="fa-solid fa-book ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============== Sección: ¿Por Qué Invertir en Acciones Españolas? ============== -->
+    <section id="por-que" class="section-padding bg-white">
+        <div class="container-custom">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">3 Razones para Elegir el Mercado Español</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1: Empresas Estables -->
+                <div class="bg-light p-8 rounded-xl card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Empresas Estables</h3>
+                    <p class="text-grayish">
+                        Liderazgo en sectores como energía, bancos y turismo (Repsol, Santander, Iberdrola). Empresas con historial probado y presencia internacional.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 2: Rendimientos Competitivos -->
+                <div class="bg-light p-8 rounded-xl card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa-solid fa-chart-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Rendimientos Competitivos</h3>
+                    <p class="text-grayish">
+                        IBEX 35 con historial de rentabilidades superiores al promedio europeo. Oportunidades de crecimiento tanto a corto como a largo plazo.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 3: Seguridad Regulatoria -->
+                <div class="bg-light p-8 rounded-xl card-hover">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Seguridad Regulatoria</h3>
+                    <p class="text-grayish">
+                        Mercado regulado por la CNMV, protección para inversionistas minoritarios y normativas alineadas con la Unión Europea.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== Sección: Oportunidades Destacadas ============== -->
+    <section id="oportunidades" class="section-padding bg-gray-50">
+        <div class="container-custom">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Valores del Momento en la Bolsa de Madrid</h2>
+
+            <!-- Tarjeta 1: IBEX 35 -->
+            <div class="bg-white p-8 rounded-xl mb-12 card-hover">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gráfico del IBEX 35 en los últimos 6 meses" class="w-full h-auto rounded-lg shadow-md">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-dark">IBEX 35 – Índice de Referencia</h3>
+                        <p class="text-grayish mb-6">
+                            El índice de las 35 empresas más grandes y liquidas de España. Diversifica tu cartera con un solo producto y reduce riesgos de exposición a un solo valor.
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-bold hover:underline">
+                            Ver Detalles del IBEX 35 <i class="fa-solid fa-angle-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Sectores con Crecimiento -->
+            <div class="bg-white p-8 rounded-xl mb-12 card-hover">
+                <h3 class="text-2xl font-bold mb-6 text-dark text-center">Sectores con Crecimiento Explosivo</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div class="p-6 bg-light rounded-lg">
+                        <div class="text-primary text-3xl mb-3">
+                            <i class="fa-solid fa-wind"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Energía Renovable</h4>
+                        <p class="text-grayish text-sm">Iberdrola, Endesa – Impulsados por la transición verde europea.</p>
+                    </div>
+                    <div class="p-6 bg-light rounded-lg">
+                        <div class="text-primary text-3xl mb-3">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Turismo y Hotelería</h4>
+                        <p class="text-grayish text-sm">Amadeus, Meliá – Recuperación post-pandemia con demanda record.</p>
+                    </div>
+                    <div class="p-6 bg-light rounded-lg">
+                        <div class="text-primary text-3xl mb-3">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">Tecnología Española</h4>
+                        <p class="text-grayish text-sm">Fintech y biotecnología con potencial internacional.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Inversión para Principiantes -->
+            <div class="bg-white p-8 rounded-xl card-hover">
+                <div class="text-center max-w-2xl mx-auto">
+                    <div class="text-primary text-4xl mb-4">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-dark">Inversión para Principiantes</h3>
+                    <p class="text-grayish mb-6">
+                        No tienes experiencia? Nuestro plan de inversión gradual te permite empezar con desde <span class="text-primary font-bold">50€</span> y aprender mientras inviertes, sin riesgos innecesarios.
+                    </p>
+                    <a href="#contacto" class="cta-button bg-whatsapp text-white hover:bg-whatsapp/90">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Consulta por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== Sección: Testimonios ============== -->
+    <section id="testimonios" class="section-padding bg-white">
+        <div class="container-custom">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Lo Que Dicen Nuestros Clientes</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="bg-light p-8 rounded-xl card-hover">
+                    <div class="text-gray-300 text-4xl mb-4">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-grayish mb-6 italic">
+                        "Empecé a invertir en acciones españolas con 100€ y ahora mi cartera ha crecido un 25% en 6 meses. La guía gratuita me ayudó a elegir los valores correctos sin cometer errores básicos."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos M." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Carlos M.</h4>
+                            <p class="text-grayish text-sm">Madrid | Inversionista desde 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonio 2 -->
+                <div class="bg-light p-8 rounded-xl card-hover">
+                    <div class="text-gray-300 text-4xl mb-4">
+                        <i class="fa-solid fa-quote-left"></i>
+                    </div>
+                    <p class="text-grayish mb-6 italic">
+                        "La Bolsa de Madrid me parecía complicada y arriesgada, pero con el asesoramiento personalizado de AccionesES, ahora invierto en el IBEX 35 sin miedo. Recomendado 100% para quienes empiezan."
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Laura G." class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Laura G.</h4>
+                            <p class="text-grayish text-sm">Barcelona | Cliente Premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== Sección: Preguntas Frecuentes ============== -->
+    <section class="section-padding bg-gray-50">
+        <div class="container-custom">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">¿Tienes Dudas? Resolvemos Todas Tus Preguntas</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- Pregunta 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-primary"></i>
+                        ¿Necesito mucho dinero para empezar?
+                    </h3>
+                    <p class="text-grayish">
+                        No, absolutamente no. Puedes invertir desde 50€ con nuestros planes de ahorro periódico (PAC), que te permiten acumular valores de forma gradual sin necesidad de una inversión inicial elevada.
+                    </p>
+                </div>
+
+                <!-- Pregunta 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-primary"></i>
+                        ¿Cómo elijo las acciones adecuadas para mí?
+                    </h3>
+                    <p class="text-grayish">
+                        Nuestro equipo de expertos financieros te brinda análisis detallados y recomendaciones gratuitas, adaptadas a tu perfil de riesgo (conservador, moderado o agresivo) y tu horizonte de inversión.
+                    </p>
+                </div>
+
+                <!-- Pregunta 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <h3 class="font-bold text-lg mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-question text-primary"></i>
+                        ¿Es seguro invertir en la Bolsa de Madrid?
+                    </h3>
+                    <p class="text-grayish">
+                        Todo tipo de inversión conlleva un riesgo, pero con diversificación de cartera, asesoramiento profesional y cumplimiento de las normativas de la CNMV, minimizas los riesgos y maximizas las posibilidades de rentabilidad a largo plazo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== Sección: Contacto WhatsApp Final (CTA) ============== -->
+    <section id="contacto" class="section-padding bg-gradient-to-r from-primary to-primary/80 text-white" style="background-image: url('https://images.unsplash.com/photo-1547573854-74d2a71d0826?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); background-blend-mode: overlay; background-size: cover; background-position: center;">
+        <div class="container-custom">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">¡Habla con Nosotros por WhatsApp!</h2>
+                <p class="text-xl text-white/90 mb-8">
+                    ¿Quieres saber más sobre cómo invertir en el mercado español? <br>
+                    Contáctanos por WhatsApp hoy y obtén una asesoría personalizada sin compromiso.
+                </p>
+            </div>
+
+            <!-- WhatsApp联系按钮卡片 -->
+            <div class="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-2xl text-center">
+                <h3 class="text-2xl font-bold text-dark mb-6">¿Listo para Empezar?</h3>
+                <p class="text-grayish mb-8">
+                    Nuestro equipo de asesores financieros está listo para ayudarte a construir tu cartera de inversiones en acciones españolas. Respuestas en menos de 1 hora (horario laboral).
+                </p>
+                <!-- WhatsApp直接跳转链接：替换+34911234567为实际手机号（国际格式，无空格/符号） -->
+                <a href="https://wa.me/+34911234567?text=Hola%21%20Quisiera%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20inversi%C3%B3n%20en%20acciones%20espa%C3%B1olas." class="inline-block cta-button bg-whatsapp text-white hover:bg-whatsapp/90">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> ¡Contacto por WhatsApp!
+                </a>
+                <p class="text-grayish text-xs text-center mt-6">
+                    Número de WhatsApp: <span class="text-whatsapp font-bold">+34 91 123 45 67</span> (Lunes-Viernes, 9:00-18:00)
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============== Footer (Pie de Página) ============== -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container-custom">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <!-- Columna 1: Logo y Descripción -->
+                <div class="md:col-span-1">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+                        <i class="fa-solid fa-chart-line text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">AccionesES</span>
+                    </a>
+                    <p class="text-grayish text-sm">
+                        Tu socio de confianza para invertir en el mercado bursátil español. Maximiza tus rentabilidades con asesoramiento profesional.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Contacto -->
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-grayish">
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-location-dot text-primary"></i>
+                            <span>Calle de Alcalá, 28, 28014 Madrid</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-phone text-primary"></i>
+                            <span>91 123 45 67</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-whatsapp"></i>
+                            <span>+34 91 123 45 67</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fa-solid fa-envelope text-primary"></i>
+                            <span>info@accioneses.com</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Enlaces Útiles -->
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4">Enlaces Útiles</h4>
+                    <ul class="space-y-2 text-grayish">
+                        <li><a href="#" class="hover:text-primary transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Regulaciones (CNMV)</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Blog de Inversiones</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Política de Privacidad</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Redes Sociales -->
+                <div class="md:col-span-1">
+                    <h4 class="font-bold text-lg mb-4">Síguenos</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-whatsapp transition-colors">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-primary transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-gray-800 mb-8">
+
+            <p class="text-center text-grayish text-sm">
+                © 2024 AccionesES - Inversión en Acciones Españolas. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript简单交互 -->
+    <script>
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+                nav.classList.remove('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-md');
+                nav.classList.add('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
